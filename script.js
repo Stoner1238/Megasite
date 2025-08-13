@@ -3,6 +3,7 @@
 // ====================
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
+
 menuToggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('open');
 });
@@ -10,9 +11,8 @@ menuToggle.addEventListener('click', () => {
 // ====================
 // Scroll reveal animation
 // ====================
-const reveals = document.querySelectorAll('.reveal');
 const revealOnScroll = () => {
-  reveals.forEach(el => {
+  document.querySelectorAll('.reveal').forEach(el => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight - 50) {
       el.classList.add('show');
@@ -20,7 +20,7 @@ const revealOnScroll = () => {
   });
 };
 window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Run on page load
+revealOnScroll();
 
 // ====================
 // Theme toggle
@@ -31,20 +31,24 @@ themeToggle.addEventListener('click', () => {
 });
 
 // ====================
-// Fetch and display people
+// People search
 // ====================
-async function loadPeople(count = 6) {
-  try {
-    const res = await fetch(`https://randomuser.me/api/?results=${count}`);
-    const data = await res.json();
-    const grid = document.getElementById('people-grid');
-    grid.innerHTML = ''; // Clear previous
+document.getElementById('people-search').addEventListener('input', e => {
+  loadPeople(e.target.value);
+});
 
-    data.results.forEach(person => {
+async function loadPeople(search = "") {
+  try {
+    const res = await fetch(`http://localhost:5000/api/people?search=${encodeURIComponent(search)}`);
+    const people = await res.json();
+    const grid = document.getElementById('people-grid');
+    grid.innerHTML = '';
+
+    people.forEach(person => {
       const card = document.createElement('div');
-      card.className = 'card reveal';
+      card.className = 'person-card reveal';
       card.innerHTML = `
-        <img src="${person.picture.large}" alt="${person.name.first}" style="width:100%;border-radius:12px;margin-bottom:.5rem;">
+        <img src="${person.picture.large}" alt="${person.name.first}">
         <h3>${person.name.first} ${person.name.last}</h3>
         <p>${person.location.country}</p>
         <p>${person.email}</p>
@@ -60,29 +64,29 @@ async function loadPeople(count = 6) {
 loadPeople();
 
 // ====================
-// Fetch and display news
+// News search
 // ====================
-const NEWS_API_KEY = "ec5a8ac55b6949018544f0d710aef439";
+document.getElementById('news-search').addEventListener('input', e => {
+  loadNews(e.target.value);
+});
 
-async function loadNews() {
+async function loadNews(search = "") {
   try {
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`);
-    const data = await res.json();
+    const res = await fetch(`http://localhost:5000/api/news?search=${encodeURIComponent(search)}`);
+    const news = await res.json();
     const container = document.getElementById('news-grid');
     container.innerHTML = '';
 
-    if (data.articles) {
-      data.articles.forEach(article => {
-        const card = document.createElement('div');
-        card.className = 'card reveal';
-        card.innerHTML = `
-          <h3>${article.title}</h3>
-          <p>${article.source.name}</p>
-          <a href="${article.url}" target="_blank" class="btn primary">Read More</a>
-        `;
-        container.appendChild(card);
-      });
-    }
+    news.forEach(article => {
+      const card = document.createElement('div');
+      card.className = 'card reveal';
+      card.innerHTML = `
+        <h3>${article.title}</h3>
+        <p>${article.source.name}</p>
+        <a href="${article.url}" target="_blank" class="btn primary">Read More</a>
+      `;
+      container.appendChild(card);
+    });
 
     revealOnScroll();
   } catch (err) {
@@ -92,7 +96,38 @@ async function loadNews() {
 loadNews();
 
 // ====================
-// Contact form
+// Events filter
+// ====================
+document.getElementById('events-filter').addEventListener('change', e => {
+  loadEvents(e.target.value);
+});
+
+async function loadEvents(date = "") {
+  try {
+    const res = await fetch(`http://localhost:5000/api/events?date=${encodeURIComponent(date)}`);
+    const events = await res.json();
+    const container = document.getElementById('events-grid');
+    container.innerHTML = '';
+
+    events.forEach(event => {
+      const item = document.createElement('div');
+      item.className = 'card reveal';
+      item.innerHTML = `
+        <h3>${event.name}</h3>
+        <p>${event.date}</p>
+      `;
+      container.appendChild(item);
+    });
+
+    revealOnScroll();
+  } catch (err) {
+    console.error('Failed to load events', err);
+  }
+}
+loadEvents();
+
+// ====================
+// Contact form handler
 // ====================
 document.getElementById('contact-form').addEventListener('submit', e => {
   e.preventDefault();
