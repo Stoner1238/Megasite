@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proxima MegaSite</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"></div>
+        PROXIMA
+      </div>
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#people">People Explorer</a>
+        <a href="#events">Events Tracker</a>
+        <a href="#news">News Hub</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle">☰</button>
+      <button class="btn primary theme-toggle">Toggle Theme</button>
+    </div>
+    <div class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#people">People Explorer</a>
+      <a href="#events">Events Tracker</a>
+      <a href="#news">News Hub</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero container">
+    <span class="badge">🚀 Welcome to the Future</span>
+    <h1 class="title">Your All-in-One Mega Platform</h1>
+    <p class="subtitle">People, events, news & more — beautifully integrated.</p>
+    <div class="cta">
+      <a href="#people" class="btn primary">Explore Now</a>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+
+    <!-- PEOPLE EXPLORER -->
+<section id="people" class="container">
+  <h2 class="section-title">👥 People Explorer</h2>
+  <p class="section-subtitle">Discover random profiles from around the world.</p>
+
+  <div id="people-grid" class="grid">
+    <!-- Cards will be inserted here by JavaScript -->
+  </div>
+
+  <div style="text-align:center; margin-top: 1rem;">
+    <button id="load-more" class="btn primary">🔄 Load More</button>
+  </div>
+</section>
+
+<!-- EVENTS TRACKER -->
+<section id="events" class="container">
+  <h2 class="section-title">📅 Events Tracker</h2>
+  <p class="section-subtitle">Stay updated with the latest events happening around you.</p>
+
+  <div class="grid" id="events-grid">
+    <div class="event-card reveal">
+      <div class="event-date">
+        <span class="day">23</span>
+        <span class="month">Aug</span>
+      </div>
+      <div class="event-info">
+        <h3>Tech Innovation Conference</h3>
+        <p>Join industry leaders to discuss the future of AI, blockchain, and emerging tech.</p>
+        <span class="location">📍 Lagos, Nigeria</span>
+      </div>
+    </div>
+
+    <div class="event-card reveal">
+      <div class="event-date">
+        <span class="day">10</span>
+        <span class="month">Sep</span>
+      </div>
+      <div class="event-info">
+        <h3>Web Dev Bootcamp</h3>
+        <p>Hands-on coding workshop for beginners to advanced developers.</p>
+        <span class="location">📍 Nairobi, Kenya</span>
+      </div>
+    </div>
+
+    <div class="event-card reveal">
+      <div class="event-date">
+        <span class="day">15</span>
+        <span class="month">Oct</span>
+      </div>
+      <div class="event-info">
+        <h3>Startup Pitch Night</h3>
+        <p>Pitch your ideas to top investors and industry mentors.</p>
+        <span class="location">📍 Accra, Ghana</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS HUB -->
+<section id="news" class="container">
+  <h2 class="section-title">📰 News Hub</h2>
+  <p class="section-subtitle">Get the latest tech, business, and innovation updates.</p>
+
+  <div class="grid" id="news-grid">
+    <div class="news-card reveal">
+      <img src="https://via.placeholder.com/400x200" alt="news image" class="news-img">
+      <div class="news-content">
+        <h3>AI Revolution in Africa</h3>
+        <p>Experts say AI adoption in Africa will grow by 400% in the next 5 years.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+
+    <div class="news-card reveal">
+      <img src="https://via.placeholder.com/400x200" alt="news image" class="news-img">
+      <div class="news-content">
+        <h3>Global Startup Funding Update</h3>
+        <p>Startup funding in Q2 hit $85 billion despite market slowdowns.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+
+    <div class="news-card reveal">
+      <img src="https://via.placeholder.com/400x200" alt="news image" class="news-img">
+      <div class="news-content">
+        <h3>SpaceX Launch Success</h3>
+        <p>SpaceX launches 45 satellites into orbit in a groundbreaking mission.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="container">
+  <div class="about-wrapper reveal">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        We are a passionate team dedicated to delivering real-time insights, 
+        people connections, and breaking news all in one place.  
+        Our mission is to keep you informed, inspired, and ahead of the curve.
+      </p>
+
+      <div class="about-stats">
+        <div class="stat">
+          <span class="number">50K+</span>
+          <span class="label">Active Users</span>
+        </div>
+        <div class="stat">
+          <span class="number">120+</span>
+          <span class="label">Countries Reached</span>
+        </div>
+        <div class="stat">
+          <span class="number">10+</span>
+          <span class="label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <img src="https://via.placeholder.com/500x350" alt="Team Photo">
+    </div>
+  </div>
+</section>
+
+
+<!-- PROJECT SHOWCASE -->
+<section id="projects" class="container">
+  <h2 class="section-title">🚀 Featured Projects</h2>
+  <p class="section-subtitle">A selection of cool work and experiments.</p>
+
+  <div class="grid" id="project-grid">
+    <div class="project-card reveal">
+      <img src="https://source.unsplash.com/600x400/?technology" alt="Project 1">
+      <div class="project-info">
+        <h3>AI Dashboard</h3>
+        <p>Interactive dashboard for real-time AI analytics and performance tracking.</p>
+        <div class="tags">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Tailwind</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="https://source.unsplash.com/600x400/?webdesign" alt="Project 2">
+      <div class="project-info">
+        <h3>Portfolio Site</h3>
+        <p>High-end portfolio website with smooth animations and responsive design.</p>
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <img src="https://source.unsplash.com/600x400/?coding" alt="Project 3">
+      <div class="project-info">
+        <h3>Startup Landing Page</h3>
+        <p>Modern landing page optimized for conversion and mobile devices.</p>
+        <div class="tags">
+          <span>Vue</span>
+          <span>SCSS</span>
+          <span>Firebase</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Features -->
+    <div class="grid">
+      <div class="card reveal">
+        <div class="icon">👥</div>
+        <span class="tag">People Explorer</span>
+        <h3>Discover Profiles</h3>
+        <p>Browse random user data with rich visuals and details.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon">🎟</div>
+        <span class="tag">Events Tracker</span>
+        <h3>Find Exciting Events</h3>
+        <p>Stay updated with concerts, sports, and meetups worldwide.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon">📰</div>
+        <span class="tag">News Hub</span>
+        <h3>Get Latest Headlines</h3>
+        <p>Curated news stories with powerful filtering options.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+<section id="contact" class="container">
+  <div class="contact-wrapper reveal">
+    <div class="contact-text">
+      <h2>Contact Us</h2>
+      <p>Have questions, feedback, or partnership inquiries?  
+      We’d love to hear from you.</p>
+
+      <form id="contact-form" class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn primary">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019110840616!2d-122.4194151846813!3d37.77492977975967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808cbaa81d21%3A0xc8f8b35a1b1d8ed3!2sSan%20Francisco!5e0!3m2!1sen!2sus!4v1632338829183!5m2!1sen!2sus" 
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p>© 2025 Proxima MegaSite. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
