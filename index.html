@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -54,6 +55,12 @@
   <h2 class="section-title">👥 People Explorer</h2>
   <p class="section-subtitle">Discover random profiles from around the world.</p>
 
+  <!-- People Search -->
+<div class="search-box">
+  <input type="text" id="people-search" placeholder="Search people...">
+  <i class="fas fa-search"></i>
+</div>
+
   <div id="people-grid" class="grid">
     <!-- Cards will be inserted here by JavaScript -->
   </div>
@@ -67,6 +74,9 @@
 <section id="events" class="container">
   <h2 class="section-title">📅 Events Tracker</h2>
   <p class="section-subtitle">Stay updated with the latest events happening around you.</p>
+
+<!-- Date filter -->
+  <input type="date" id="events-filter" />
 
   <div class="grid" id="events-grid">
     <div class="event-card reveal">
@@ -111,6 +121,12 @@
 <section id="news" class="container">
   <h2 class="section-title">📰 News Hub</h2>
   <p class="section-subtitle">Get the latest tech, business, and innovation updates.</p>
+
+<!-- News Search -->
+<div class="search-box">
+  <input type="text" id="news-search" placeholder="Search news...">
+  <i class="fas fa-search"></i>
+</div>
 
   <div class="grid" id="news-grid">
     <div class="news-card reveal">
